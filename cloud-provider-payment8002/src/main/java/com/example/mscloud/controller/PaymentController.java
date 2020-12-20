@@ -47,4 +47,10 @@ public class PaymentController {
         System.out.println("hello");
         return "home";
     }
+    @GetMapping(value = "/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
+
+
 }
