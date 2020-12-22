@@ -2,7 +2,6 @@ package com.example.mscloud.controller;
 
 
 import com.example.mscloud.service.PaymentService;
-
 import entities.CommonResult;
 import entities.Payment;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -66,10 +66,22 @@ public class PaymentController {
         System.out.println("hello");
         return "home";
     }
+    /*
+    * add for ribbon*/
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB(){
         return serverPort;
     }
+
+    /*
+    * add for openfeign*/
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        try { TimeUnit.SECONDS.sleep(3); }catch (Exception e) {e.printStackTrace();}
+        return serverPort;
+    }
+
+
 
 
 }
