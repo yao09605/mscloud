@@ -12,8 +12,6 @@
     <artifactId>cloud-config-center-3344</artifactId>
 
     <dependencies>
-
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
