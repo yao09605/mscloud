@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mscloud.dao.DroolsDao">
+    <resultMap id="BaseResultMap" type="com.example.mscloud.entity.ParamInfo">
+        <id column="id" property="id" jdbcType="VARCHAR"></id>
+        <id column="param_sign" property="paramSign" jdbcType="VARCHAR"></id>
+        <id column="create_time" property="createTime" jdbcType="TIMESTAMP"></id>
+        <id column="update_time" property="updateTime" jdbcType="TIMESTAMP"></id>
+    </resultMap>
+    <insert id="insertParam" parameterType="com.example.mscloud.entity.ParamInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into re_param_info (id, param_sign, create_time, update_time)
+        values (#{id,jdbcType=VARCHAR}, #{paramSign,jdbcType=VARCHAR},
+                #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="selectById" parameterType="Long" resultMap="BaseResultMap">
+        select * from re_param_info where id=#{id}
+    </select>
+    <delete id="removeById" parameterType="Long" >
+        delete from re_param_info where id=#{id}
+    </delete>
+</mapper>
