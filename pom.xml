@@ -25,6 +25,7 @@
       <module>cloud-config-center-3344</module>
     <module>cloud-config-client-3355</module>
     <module>midware-drools7015</module>
+    <module>util-dynamicbean7016</module>
   </modules>
   <packaging>pom</packaging>
 
